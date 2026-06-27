@@ -1,0 +1,21 @@
+order_id,region,product,quantity,unit_price,total
+1001,North,Widget A,5,19.99,99.95
+1002,South,Widget B,2,34.50,69.00
+1003,East,Widget A,10,19.99,199.90
+1004,West,Widget C,1,99.00,99.00
+1005,North,Widget B,3,34.50,103.50
+1006,South,Widget A,7,19.99,139.93
+1007,East,Widget C,2,99.00,198.00
+1008,West,Widget A,4,19.99,79.96
+1009,North,Widget B,6,34.50,207.00
+1010,South,Widget C,1,99.00,99.00
+1011,East,Widget A,3,19.99,59.97
+1012,West,Widget B,5,34.50,172.50
+1013,North,Widget A,8,19.99,159.92
+1014,South,Widget B,2,34.50,69.00
+1015,East,Widget C,4,99.00,396.00
+1016,West,Widget A,6,19.99,119.94
+1017,North,Widget C,1,99.00,99.00
+1018,South,Widget A,9,19.99,179.91
+1019,East,Widget B,3,34.50,103.50
+1020,West,Widget C,2,99.00,198.00
