@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HO13 — Interactive Data App · Forgemind AI Claude Course</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#F8F9FA; color:#1a1a2e; }
+:root { --color: #C2410C; }
+header { background: var(--color); color:#fff; padding:40px 32px 32px; }
+header .badge { font-size:13px; font-weight:700; letter-spacing:.08em; opacity:.8; text-transform:uppercase; margin-bottom:8px; }
+header h1 { font-size:28px; font-weight:800; margin-bottom:8px; }
+header p { font-size:15px; opacity:.85; max-width:640px; line-height:1.6; }
+.sub-bar { background:#fff; border-left:4px solid var(--color); padding:14px 20px; margin:24px 32px; border-radius:4px; font-size:14px; color:#374151; line-height:1.6; box-shadow:0 1px 4px rgba(0,0,0,.07); }
+.sub-bar strong { color:var(--color); }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; padding:0 32px 40px; }
+.card { background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.08); overflow:hidden; }
+.card:hover { box-shadow:0 4px 16px rgba(0,0,0,.13); }
+.card-top { background:var(--color); padding:14px 18px; display:flex; align-items:center; gap:10px; }
+.card-num { background:rgba(255,255,255,.25); color:#fff; font-weight:800; font-size:12px; border-radius:20px; padding:2px 9px; }
+.card-top h3 { color:#fff; font-size:14.5px; font-weight:700; }
+.card-body { padding:16px 18px; }
+.card-body p { font-size:13px; color:#4B5563; line-height:1.6; margin-bottom:14px; }
+.btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:var(--color); color:#fff; text-decoration:none; border-radius:6px; font-size:13px; font-weight:600; }
+.btn:hover { opacity:.88; }
+footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-top:1px solid #E5E7EB; margin-top:8px; }
+@media(max-width:580px){ .grid{ grid-template-columns:1fr; padding:0 14px 28px; } header{ padding:24px 16px; } .sub-bar{ margin:14px 14px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">HO13</div>
+  <h1>Interactive Data App</h1>
+  <p>File and data operations run inside Claude Cowork — upload your files and use the included prompts.</p>
+</header>
+
+<div class="sub-bar">
+  <strong>Claude.ai subscription required</strong> — Requires Claude.ai Pro or Team subscription with Cowork access. Upload your files to Cowork, then paste the included prompt to process them.
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-top">
+      <span class="card-num">01</span>
+      <h3>Smart Folder Sorter</h3>
+    </div>
+    <div class="card-body">
+      <p>Upload a mixed set of files and get a categorised sort plan — Images, Documents, Videos, Code, Archives — plus ready-to-run shell move commands.</p>
+      <a class="btn" href="./samples/sample-01/">View Sample →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="card-num">02</span>
+      <h3>CSV Data Cleaner</h3>
+    </div>
+    <div class="card-body">
+      <p>Upload a messy CSV and get it back deduplicated, whitespace-stripped, and with column names standardised to snake_case.</p>
+      <a class="btn" href="./samples/sample-02/">View Sample →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="card-num">03</span>
+      <h3>Batch Image Resizer</h3>
+    </div>
+    <div class="card-body">
+      <p>Upload images (or a filename list) and get a resize plan with ImageMagick commands — target width, format conversion, and estimated savings.</p>
+      <a class="btn" href="./samples/sample-03/">View Sample →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="card-num">04</span>
+      <h3>CSV Summary Report Generator</h3>
+    </div>
+    <div class="card-body">
+      <p>Upload any CSV and receive a full statistical Markdown report — row counts, min/max/mean for numbers, and top-value frequencies for text columns.</p>
+      <a class="btn" href="./samples/sample-04/">View Sample →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="card-num">05</span>
+      <h3>API Fetch &amp; Save Script</h3>
+    </div>
+    <div class="card-body">
+      <p>Paste a JSON API response and get a complete Python fetch-and-save script — with timestamps, polling support, and no third-party dependencies.</p>
+      <a class="btn" href="./samples/sample-05/">View Sample →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>Forgemind AI · Claude Course · HO13 · github.com/Forgemind-git/ho13-cli-tool</footer>
+
+</body>
+</html>
