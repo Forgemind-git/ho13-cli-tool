@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample 01 — Smart Folder Sorter · HO13</title>
+<title>Sample 1 — folder sorter · HO13 Starter</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#F8F9FA; color:#1a1a2e; }
@@ -14,26 +14,20 @@ header .back:hover { opacity:1; }
 header .badge { font-size:12px; font-weight:700; letter-spacing:.08em; opacity:.75; text-transform:uppercase; margin-bottom:8px; }
 header h1 { font-size:26px; font-weight:800; margin-bottom:8px; }
 header p { font-size:15px; opacity:.85; max-width:640px; line-height:1.6; }
-.sub-bar { background:#fff; border-left:4px solid var(--color); padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#374151; line-height:1.6; box-shadow:0 1px 4px rgba(0,0,0,.07); }
-.sub-bar strong { color:var(--color); }
+.starter-bar { background:#FEF3C7; border-left:4px solid #D97706; padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#92400E; line-height:1.6; }
+.starter-bar strong { color:#92400E; }
 .content { max-width:820px; margin:0 auto; padding:32px; }
 .section { background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.08); padding:28px 32px; margin-bottom:24px; }
 .section h2 { font-size:17px; font-weight:700; color:var(--color); margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid #FEE9E0; }
 .section p, .section li { font-size:14px; color:#374151; line-height:1.75; }
 .section ul, .section ol { padding-left:20px; }
 .section ol li { margin-bottom:10px; }
-.prompt-block { position:relative; background:#1a1a2e; border-radius:8px; padding:20px 20px 20px 20px; margin-top:14px; }
-.prompt-block pre { color:#e2e8f0; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; word-break:break-word; }
-.copy-btn { position:absolute; top:12px; right:12px; background:rgba(255,255,255,.12); color:#e2e8f0; border:none; border-radius:5px; padding:5px 12px; font-size:12px; cursor:pointer; font-weight:600; }
-.copy-btn:hover { background:rgba(255,255,255,.22); }
-.copy-btn.copied { background:rgba(34,197,94,.25); color:#86efac; }
+.todo-block { background:#FEF3C7; border-radius:8px; padding:20px; margin-top:14px; border-left:4px solid #D97706; }
+.todo-block p { font-size:13px; color:#92400E; line-height:1.7; }
+.todo-block code { background:#FDE68A; padding:1px 5px; border-radius:3px; font-family: monospace; }
 .steps { counter-reset: step; }
 .steps li { counter-increment: step; list-style:none; position:relative; padding-left:36px; margin-bottom:12px; }
 .steps li::before { content: counter(step); position:absolute; left:0; top:0; width:24px; height:24px; background:var(--color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
-.output-block { background:#0f172a; border-radius:8px; padding:18px 20px; margin-top:12px; }
-.output-block pre { color:#94a3b8; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; }
-.ref-note { background:#FFF7ED; border:1px solid #FED7AA; border-radius:6px; padding:12px 16px; margin-top:16px; font-size:13px; color:#9A3412; }
-.ref-note strong { color:#C2410C; }
 footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-top:1px solid #E5E7EB; margin-top:8px; }
 </style>
 </head>
@@ -41,106 +35,63 @@ footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-
 
 <header>
   <a class="back" href="../../">← Back to HO13</a>
-  <div class="badge">HO13 · Sample 01</div>
-  <h1>Smart Folder Sorter</h1>
-  <p>Automatically organise a messy folder by sorting files into subfolders by type — Images, Documents, Videos, Audio, Code, Archives, and Other.</p>
+  <div class="badge">HO13 · Sample 1 · Starter</div>
+  <h1>folder sorter</h1>
+  <p>Your Downloads folder is a graveyard of mystery files. Build a Cowork automation that sorts files into folders by type, date or keyword.</p>
 </header>
 
-<div class="sub-bar">
-  <strong>Subscription required</strong> — This sample runs inside <strong>Claude.ai</strong> using the Cowork feature. A Pro or Team subscription with Cowork access is required. No API key or local Python install needed.
+<div class="starter-bar">
+  <strong>Starter branch — no answers here.</strong> Your job is to write the Cowork prompt and figure out what Claude should do.
+  Switch to the <code>main</code> branch to see the reference solution.
 </div>
 
 <div class="content">
 
   <div class="section">
-    <h2>What this does</h2>
-    <p>Given a messy folder of mixed files, this task groups every file by its extension into category subfolders: <strong>Images</strong>, <strong>Documents</strong>, <strong>Videos</strong>, <strong>Audio</strong>, <strong>Code</strong>, <strong>Archives</strong>, and <strong>Other</strong>. It reports exactly what it would move — you review before anything changes.</p>
+    <h2>Your task</h2>
+    <p>Build a Claude Cowork automation that takes a list of filenames and sorts them into categories. You decide the categories and the rules — then write a Cowork prompt that makes Claude do the work.</p>
   </div>
 
   <div class="section">
-    <h2>Step-by-step in Claude Cowork</h2>
+    <h2>Files to upload in Cowork</h2>
+    <ul>
+      <li>A list of filenames (paste directly or upload a .txt file)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Your Cowork prompt</h2>
+    <p>Open <code>cowork-prompt.md</code> in this folder and write your prompt. Then paste it into Claude Cowork after uploading your files.</p>
+    <div class="todo-block">
+      <p>
+        <strong>TODO:</strong> Write your prompt in <code>cowork-prompt.md</code>.<br><br>
+        Things to decide before writing:<br>
+        &bull; What categories will you use? (e.g. Images, Documents, Videos, Code, Other?)<br>
+        &bull; What rules determine the category? (extension? filename keyword? date?)<br>
+        &bull; What output do you want? (a sorted list? shell commands? a summary table?)
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How to run it</h2>
     <ol class="steps">
       <li>Open <strong>claude.ai</strong> and sign in to your Pro or Team account.</li>
-      <li>Click <strong>Cowork</strong> in the left sidebar to open a Cowork session.</li>
-      <li>Upload the files from your messy folder using the <strong>attach / upload</strong> button. You can select multiple files at once. (For a quick test, use the files in <code>sample_data/</code> from this repo.)</li>
-      <li>Paste the prompt below into the chat and press Enter:
-        <div class="prompt-block">
-          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <pre>I've uploaded a set of files from a mixed folder. Please analyse each file by its name and extension, then group them into these categories:
-
-- Images: .jpg .jpeg .png .gif .bmp .svg .webp .tiff .ico
-- Documents: .pdf .doc .docx .txt .xls .xlsx .ppt .pptx .odt .rtf .md
-- Videos: .mp4 .avi .mov .mkv .wmv .flv .webm .m4v
-- Audio: .mp3 .wav .flac .aac .ogg .m4a
-- Code: .py .js .ts .html .css .java .cpp .c .h .go .rs .rb .php .sh .json .xml .yaml .yml .toml .ini
-- Archives: .zip .tar .gz .rar .7z .bz2 .xz .tgz
-- Other: everything else
-
-For each category, list the filenames. Then produce a summary table showing how many files fall into each category.
-
-Finally, write out the shell commands I would need to run (on macOS/Linux) to actually move each file into a subfolder named after its category.</pre>
-        </div>
-      </li>
-      <li>Claude will list every file, assign categories, show a summary table, and generate ready-to-run shell move commands.</li>
-      <li>Review the plan, then copy and run the shell commands in your terminal — or ask Claude to adjust the categories first.</li>
+      <li>Click <strong>Cowork</strong> in the left sidebar.</li>
+      <li>Upload your file list.</li>
+      <li>Paste your completed prompt from <code>cowork-prompt.md</code>.</li>
+      <li>Review Claude's output and refine your prompt if needed.</li>
     </ol>
   </div>
 
   <div class="section">
-    <h2>Sample output</h2>
-    <p>After pasting the prompt you should see something like:</p>
-    <div class="output-block"><pre>Here's how I'd sort the uploaded files:
-
-**Images (1)**  logo.png
-
-**Documents (2)**  budget.xlsx, notes.txt
-
-**Videos (1)**  video.mp4
-
-**Code (1)**  script.py
-
-**Other (0)**  —
-
----
-| Category  | Count |
-|-----------|-------|
-| Images    |   1   |
-| Documents |   2   |
-| Videos    |   1   |
-| Code      |   1   |
-
-Shell commands to move files:
-mkdir -p Images Documents Videos Code
-mv logo.png Images/
-mv budget.xlsx notes.txt Documents/
-mv video.mp4 Videos/
-mv script.py Code/</pre></div>
-  </div>
-
-  <div class="section">
-    <h2>Reference: local Python version</h2>
-    <p>The Python script <code>main.py</code> in this folder does the same job locally, using only the standard library. Run it if you have Python 3.8+ installed:</p>
-    <div class="output-block"><pre># Preview (dry run — no files moved):
-python main.py sample_data/ --dry-run
-
-# Actually move files:
-python main.py sample_data/</pre></div>
-    <div class="ref-note"><strong>Note:</strong> The Python script requires local file access and Python 3.8+. The Cowork approach above works entirely in the browser with no install required.</div>
+    <h2>Bonus: local Python script</h2>
+    <p>The file <code>main.py</code> in this folder is a skeleton Python script. Once Claude has helped you understand the logic, try filling in the TODOs to make it run locally.</p>
   </div>
 
 </div>
 
 <footer>Forgemind AI · Claude Course · HO13 · github.com/Forgemind-git/ho13-cli-tool</footer>
 
-<script>
-function copyPrompt(btn) {
-  const pre = btn.nextElementSibling;
-  navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-</script>
 </body>
 </html>

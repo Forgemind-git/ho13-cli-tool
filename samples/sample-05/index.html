@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample 05 — API Fetch &amp; Save Script · HO13</title>
+<title>Sample 5 — fetch and save · HO13 Starter</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#F8F9FA; color:#1a1a2e; }
@@ -14,26 +14,20 @@ header .back:hover { opacity:1; }
 header .badge { font-size:12px; font-weight:700; letter-spacing:.08em; opacity:.75; text-transform:uppercase; margin-bottom:8px; }
 header h1 { font-size:26px; font-weight:800; margin-bottom:8px; }
 header p { font-size:15px; opacity:.85; max-width:640px; line-height:1.6; }
-.sub-bar { background:#fff; border-left:4px solid var(--color); padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#374151; line-height:1.6; box-shadow:0 1px 4px rgba(0,0,0,.07); }
-.sub-bar strong { color:var(--color); }
+.starter-bar { background:#FEF3C7; border-left:4px solid #D97706; padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#92400E; line-height:1.6; }
+.starter-bar strong { color:#92400E; }
 .content { max-width:820px; margin:0 auto; padding:32px; }
 .section { background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.08); padding:28px 32px; margin-bottom:24px; }
 .section h2 { font-size:17px; font-weight:700; color:var(--color); margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid #FEE9E0; }
 .section p, .section li { font-size:14px; color:#374151; line-height:1.75; }
 .section ul, .section ol { padding-left:20px; }
 .section ol li { margin-bottom:10px; }
-.prompt-block { position:relative; background:#1a1a2e; border-radius:8px; padding:20px 20px 20px 20px; margin-top:14px; }
-.prompt-block pre { color:#e2e8f0; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; word-break:break-word; }
-.copy-btn { position:absolute; top:12px; right:12px; background:rgba(255,255,255,.12); color:#e2e8f0; border:none; border-radius:5px; padding:5px 12px; font-size:12px; cursor:pointer; font-weight:600; }
-.copy-btn:hover { background:rgba(255,255,255,.22); }
-.copy-btn.copied { background:rgba(34,197,94,.25); color:#86efac; }
+.todo-block { background:#FEF3C7; border-radius:8px; padding:20px; margin-top:14px; border-left:4px solid #D97706; }
+.todo-block p { font-size:13px; color:#92400E; line-height:1.7; }
+.todo-block code { background:#FDE68A; padding:1px 5px; border-radius:3px; font-family: monospace; }
 .steps { counter-reset: step; }
 .steps li { counter-increment: step; list-style:none; position:relative; padding-left:36px; margin-bottom:12px; }
 .steps li::before { content: counter(step); position:absolute; left:0; top:0; width:24px; height:24px; background:var(--color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
-.output-block { background:#0f172a; border-radius:8px; padding:18px 20px; margin-top:12px; }
-.output-block pre { color:#94a3b8; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; }
-.ref-note { background:#FFF7ED; border:1px solid #FED7AA; border-radius:6px; padding:12px 16px; margin-top:16px; font-size:13px; color:#9A3412; }
-.ref-note strong { color:#C2410C; }
 footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-top:1px solid #E5E7EB; margin-top:8px; }
 </style>
 </head>
@@ -41,128 +35,67 @@ footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-
 
 <header>
   <a class="back" href="../../">← Back to HO13</a>
-  <div class="badge">HO13 · Sample 05</div>
-  <h1>API Fetch &amp; Save Script</h1>
-  <p>Fetch JSON data from any public API URL, understand its structure, and get a ready-to-run script that saves timestamped records to a local file.</p>
+  <div class="badge">HO13 · Sample 5 · Starter</div>
+  <h1>fetch and save</h1>
+  <p>You repeatedly grab the same data from a website or API and paste it somewhere. Build a Cowork fetch-and-save script.</p>
 </header>
 
-<div class="sub-bar">
-  <strong>Subscription required</strong> — This sample runs inside <strong>Claude.ai</strong> using the Cowork feature. A Pro or Team subscription with Cowork access is required. No API key or local Python install needed.
+<div class="starter-bar">
+  <strong>Starter branch — no answers here.</strong> Your job is to write the Cowork prompt and figure out what Claude should do.
+  Switch to the <code>main</code> branch to see the reference solution.
 </div>
 
 <div class="content">
 
   <div class="section">
-    <h2>What this does</h2>
-    <p>Fetching data from a public API and saving it locally involves understanding the JSON structure, adding timestamps, and handling errors gracefully. This task uses Claude to:</p>
-    <ul>
-      <li>Analyse the JSON response from any URL you provide</li>
-      <li>Explain the data structure in plain English</li>
-      <li>Generate a complete Python script that fetches and saves timestamped records</li>
-      <li>Optionally add polling (run every N seconds) and append new records to the same file</li>
-    </ul>
-    <p style="margin-top:10px;">You can paste in a raw JSON response, or let Claude use the provided example from <code>sample_data/example_output.json</code>.</p>
+    <h2>Your task</h2>
+    <p>Build a Claude Cowork automation that generates a Python script to fetch data from an API or URL and save it to a local file. You choose the data source and output format, then write a prompt that makes Claude produce a working script.</p>
   </div>
 
   <div class="section">
-    <h2>Step-by-step in Claude Cowork</h2>
+    <h2>Files to upload in Cowork</h2>
+    <ul>
+      <li>(Optional) A screenshot of the API docs, or paste the URL and a sample JSON response directly in your prompt</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Your Cowork prompt</h2>
+    <p>Open <code>cowork-prompt.md</code> in this folder and write your prompt. Then paste it into Claude Cowork.</p>
+    <div class="todo-block">
+      <p>
+        <strong>TODO:</strong> Write your prompt in <code>cowork-prompt.md</code>.<br><br>
+        Things to decide before writing:<br>
+        &bull; What is the API URL or data source?<br>
+        &bull; Does it need authentication? (API key in a header? query param?)<br>
+        &bull; What fields do you want to extract from the response?<br>
+        &bull; Output format: JSON, CSV, or Markdown?<br>
+        &bull; Should the script run once or poll on an interval?<br>
+        &bull; Should output files be timestamped so they don't overwrite each other?
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How to run it</h2>
     <ol class="steps">
       <li>Open <strong>claude.ai</strong> and sign in to your Pro or Team account.</li>
-      <li>Click <strong>Cowork</strong> in the left sidebar to open a Cowork session.</li>
-      <li>Upload <code>sample_data/example_output.json</code> from this repo (or paste a JSON snippet from your own API directly into the chat).</li>
-      <li>Paste the prompt below into the chat and press Enter:
-        <div class="prompt-block">
-          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <pre>I've uploaded a JSON file (or pasted a JSON response) from an API endpoint.
-
-Please:
-
-1. Analyse the JSON structure and describe what data it contains in plain English (field names, data types, nesting).
-2. Identify the most useful fields to extract and display in a human-readable summary.
-3. Write a complete Python script (standard library only — no third-party packages) that:
-   a) Fetches JSON from the URL: https://jsonplaceholder.typicode.com/todos/1
-   b) Wraps it in a record with: fetched_at (UTC ISO timestamp), url, status_code, data
-   c) Loads any existing records from data.json (as a list), appends the new record, and saves back to data.json
-   d) Prints a clean summary of the fetched data to the terminal
-   e) Accepts a --url flag to fetch from a different endpoint
-   f) Accepts an --interval N flag to keep polling every N seconds (Ctrl+C to stop)
-4. Show a sample of what data.json will look like after two fetches.
-
-Output the script as a Python code block.</pre>
-        </div>
-      </li>
-      <li>Claude will explain the JSON structure, then output a complete, ready-to-run Python script.</li>
-      <li>Copy the script, save it as <code>fetch.py</code>, and run it with <code>python fetch.py</code>. Modify the URL as needed.</li>
+      <li>Click <strong>Cowork</strong> in the left sidebar.</li>
+      <li>Upload API docs or paste a sample response (optional but helpful).</li>
+      <li>Paste your completed prompt from <code>cowork-prompt.md</code>.</li>
+      <li>Claude will generate a Python script — copy it into <code>main.py</code> and run it locally.</li>
     </ol>
   </div>
 
   <div class="section">
-    <h2>Sample output</h2>
-    <div class="output-block"><pre>**JSON structure analysis:**
-The response is a flat object with 4 fields:
-- userId (integer) — the user who owns this todo
-- id (integer) — unique todo identifier
-- title (string) — the task description
-- completed (boolean) — whether the task is done
-
-**Generated script (fetch.py):**
-
-```python
-import argparse, json, time, urllib.request
-from datetime import datetime, timezone
-from pathlib import Path
-
-DEFAULT_URL = "https://jsonplaceholder.typicode.com/todos/1"
-
-def fetch(url, timeout=10):
-    req = urllib.request.Request(url, headers={"User-Agent": "fetch-cli/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read()), r.status
-...
-```
-
-**data.json after two fetches:**
-[
-  {
-    "fetched_at": "2025-09-01T10:00:00+00:00",
-    "url": "https://jsonplaceholder.typicode.com/todos/1",
-    "status": 200,
-    "data": { "userId": 1, "id": 1, "title": "delectus aut autem", "completed": false }
-  },
-  {
-    "fetched_at": "2025-09-01T10:00:30+00:00",
-    ...
-  }
-]</pre></div>
-  </div>
-
-  <div class="section">
-    <h2>Reference: local Python version</h2>
-    <p>The Python script <code>main.py</code> in this folder is the complete fetch-and-save implementation (standard library only):</p>
-    <div class="output-block"><pre># Single fetch (saves to data.json):
-python main.py
-
-# Fetch from a custom URL:
-python main.py --url https://api.coindesk.com/v1/bpi/currentprice.json
-
-# Poll every 30 seconds:
-python main.py --url https://jsonplaceholder.typicode.com/posts/1 --interval 30</pre></div>
-    <div class="ref-note"><strong>Note:</strong> The Python script requires local file access and Python 3.8+. The Cowork approach above generates a customisable script you can adapt for any API without needing local tools.</div>
+    <h2>Bonus: local Python script</h2>
+    <p>The file <code>main.py</code> in this folder is a skeleton. Paste Claude's generated script into it and run:</p>
+    <p><code>python main.py --url https://your-api-url --format json</code></p>
   </div>
 
 </div>
 
 <footer>Forgemind AI · Claude Course · HO13 · github.com/Forgemind-git/ho13-cli-tool</footer>
 
-<script>
-function copyPrompt(btn) {
-  const pre = btn.nextElementSibling;
-  navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-</script>
 </body>
 </html>

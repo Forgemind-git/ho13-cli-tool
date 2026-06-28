@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample 04 — CSV Summary Report Generator · HO13</title>
+<title>Sample 4 — csv report · HO13 Starter</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#F8F9FA; color:#1a1a2e; }
@@ -14,26 +14,20 @@ header .back:hover { opacity:1; }
 header .badge { font-size:12px; font-weight:700; letter-spacing:.08em; opacity:.75; text-transform:uppercase; margin-bottom:8px; }
 header h1 { font-size:26px; font-weight:800; margin-bottom:8px; }
 header p { font-size:15px; opacity:.85; max-width:640px; line-height:1.6; }
-.sub-bar { background:#fff; border-left:4px solid var(--color); padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#374151; line-height:1.6; box-shadow:0 1px 4px rgba(0,0,0,.07); }
-.sub-bar strong { color:var(--color); }
+.starter-bar { background:#FEF3C7; border-left:4px solid #D97706; padding:14px 20px; margin:24px 32px 0; border-radius:4px; font-size:14px; color:#92400E; line-height:1.6; }
+.starter-bar strong { color:#92400E; }
 .content { max-width:820px; margin:0 auto; padding:32px; }
 .section { background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.08); padding:28px 32px; margin-bottom:24px; }
 .section h2 { font-size:17px; font-weight:700; color:var(--color); margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid #FEE9E0; }
 .section p, .section li { font-size:14px; color:#374151; line-height:1.75; }
 .section ul, .section ol { padding-left:20px; }
 .section ol li { margin-bottom:10px; }
-.prompt-block { position:relative; background:#1a1a2e; border-radius:8px; padding:20px 20px 20px 20px; margin-top:14px; }
-.prompt-block pre { color:#e2e8f0; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; word-break:break-word; }
-.copy-btn { position:absolute; top:12px; right:12px; background:rgba(255,255,255,.12); color:#e2e8f0; border:none; border-radius:5px; padding:5px 12px; font-size:12px; cursor:pointer; font-weight:600; }
-.copy-btn:hover { background:rgba(255,255,255,.22); }
-.copy-btn.copied { background:rgba(34,197,94,.25); color:#86efac; }
+.todo-block { background:#FEF3C7; border-radius:8px; padding:20px; margin-top:14px; border-left:4px solid #D97706; }
+.todo-block p { font-size:13px; color:#92400E; line-height:1.7; }
+.todo-block code { background:#FDE68A; padding:1px 5px; border-radius:3px; font-family: monospace; }
 .steps { counter-reset: step; }
 .steps li { counter-increment: step; list-style:none; position:relative; padding-left:36px; margin-bottom:12px; }
 .steps li::before { content: counter(step); position:absolute; left:0; top:0; width:24px; height:24px; background:var(--color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
-.output-block { background:#0f172a; border-radius:8px; padding:18px 20px; margin-top:12px; }
-.output-block pre { color:#94a3b8; font-family: 'SF Mono', 'Fira Code', monospace; font-size:13px; line-height:1.65; white-space:pre-wrap; }
-.ref-note { background:#FFF7ED; border:1px solid #FED7AA; border-radius:6px; padding:12px 16px; margin-top:16px; font-size:13px; color:#9A3412; }
-.ref-note strong { color:#C2410C; }
 footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-top:1px solid #E5E7EB; margin-top:8px; }
 </style>
 </head>
@@ -41,124 +35,67 @@ footer { text-align:center; padding:24px; color:#9CA3AF; font-size:13px; border-
 
 <header>
   <a class="back" href="../../">← Back to HO13</a>
-  <div class="badge">HO13 · Sample 04</div>
-  <h1>CSV Summary Report Generator</h1>
-  <p>Upload any CSV and get a complete statistical summary — row counts, min/max/mean for numeric columns, and top values for text columns — as a formatted Markdown report.</p>
+  <div class="badge">HO13 · Sample 4 · Starter</div>
+  <h1>csv report</h1>
+  <p>Every week you hand-write a summary from the same kind of CSV. Build a Cowork report generator.</p>
 </header>
 
-<div class="sub-bar">
-  <strong>Subscription required</strong> — This sample runs inside <strong>Claude.ai</strong> using the Cowork feature. A Pro or Team subscription with Cowork access is required. No API key or local Python install needed.
+<div class="starter-bar">
+  <strong>Starter branch — no answers here.</strong> Your job is to write the Cowork prompt and figure out what Claude should do.
+  Switch to the <code>main</code> branch to see the reference solution.
 </div>
 
 <div class="content">
 
   <div class="section">
-    <h2>What this does</h2>
-    <p>Rather than opening a CSV in a spreadsheet and manually calculating statistics, this task hands the file to Claude and gets back a structured Markdown report covering:</p>
-    <ul>
-      <li><strong>Overview</strong> — row count, column count, column list</li>
-      <li><strong>Numeric columns</strong> — count, min, max, mean, median, sum, and empty-cell count</li>
-      <li><strong>Text columns</strong> — unique value count, top-5 most frequent values with their frequencies</li>
-      <li><strong>Empty columns</strong> — flagged for removal</li>
-    </ul>
-    <p style="margin-top:10px;">The report is output as a Markdown code block you can copy directly into a README, Notion page, or any document.</p>
+    <h2>Your task</h2>
+    <p>Build a Claude Cowork automation that reads your weekly CSV and produces a formatted Markdown summary report. You decide what sections the report should contain, then write a Cowork prompt that makes Claude generate both the report and a reusable Python script.</p>
   </div>
 
   <div class="section">
-    <h2>Step-by-step in Claude Cowork</h2>
+    <h2>Files to upload in Cowork</h2>
+    <ul>
+      <li>Your weekly CSV export (use the sample in <code>sample_data/</code> for a quick test)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Your Cowork prompt</h2>
+    <p>Open <code>cowork-prompt.md</code> in this folder and write your prompt. Then paste it into Claude Cowork after uploading your CSV.</p>
+    <div class="todo-block">
+      <p>
+        <strong>TODO:</strong> Write your prompt in <code>cowork-prompt.md</code>.<br><br>
+        Things to decide before writing:<br>
+        &bull; What are the column names in your CSV?<br>
+        &bull; Which columns are numeric? Which are text/category?<br>
+        &bull; What totals do you need? (sum, average, min, max?)<br>
+        &bull; What are your "top N" rankings? (e.g. top 5 products by revenue?)<br>
+        &bull; Do you want anomaly detection or trend notes?<br>
+        &bull; Output format: Markdown? HTML? Plain text?
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How to run it</h2>
     <ol class="steps">
       <li>Open <strong>claude.ai</strong> and sign in to your Pro or Team account.</li>
-      <li>Click <strong>Cowork</strong> in the left sidebar to open a Cowork session.</li>
-      <li>Upload your CSV file using the <strong>attach / upload</strong> button. For a quick test, use <code>sample_data/sales.csv</code> from this repo.</li>
-      <li>Paste the prompt below into the chat and press Enter:
-        <div class="prompt-block">
-          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <pre>I've uploaded a CSV file. Please generate a full statistical summary report in Markdown format.
-
-The report must include:
-
-## Overview
-A table with: filename, total rows, total columns, and all column names.
-
-## Numeric Columns
-For each column where ≥80% of non-empty values are numbers, produce a table row with:
-count, min, max, mean (2 decimal places), median (2 decimal places), sum, empty cell count.
-
-## Text Columns
-For each text/categorical column, show:
-- Non-empty count
-- Empty cell count
-- Number of unique values
-- Top 5 most frequent values and their counts (as a small table)
-
-## Empty Columns
-List any columns where all values are empty.
-
-Output the entire report as a single Markdown code block (triple backticks with "markdown" tag) so I can copy and paste it.</pre>
-        </div>
-      </li>
-      <li>Claude will analyse the CSV and output the complete report inside a Markdown code block.</li>
-      <li>Copy the Markdown and paste it wherever you need it — or ask Claude follow-up questions about the data, e.g. "Which product had the highest total sales?"</li>
+      <li>Click <strong>Cowork</strong> in the left sidebar.</li>
+      <li>Upload your CSV file.</li>
+      <li>Paste your completed prompt from <code>cowork-prompt.md</code>.</li>
+      <li>Claude will produce the report and a Python script — copy the script into <code>main.py</code>.</li>
     </ol>
   </div>
 
   <div class="section">
-    <h2>Sample output</h2>
-    <div class="output-block"><pre>```markdown
-# CSV Summary Report: `sales.csv`
-
-## Overview
-
-| Property     | Value                                  |
-|--------------|----------------------------------------|
-| File         | sales.csv                              |
-| Rows         | 150                                    |
-| Columns      | 5                                      |
-| Column names | date, region, product, units, revenue  |
-
-## Numeric Columns (2)
-
-| Column  | Count | Min  | Max     | Mean    | Median | Sum      | Empty |
-|---------|-------|------|---------|---------|--------|----------|-------|
-| units   | 150   | 1    | 500     | 87.34   | 72.00  | 13101    | 0     |
-| revenue | 148   | 9.99 | 4999.00 | 612.45  | 489.50 | 90642.60 | 2     |
-
-## Text Columns (3)
-
-### `region`
-- Count: 150 | Empty: 0 | Unique: 4
-- Top 5: North (52), South (41), East (33), West (24)
-
-### `product`
-- Count: 150 | Empty: 0 | Unique: 8
-- Top 5: Widget A (38), Widget B (29), Gadget X (27), ...
-```</pre></div>
-  </div>
-
-  <div class="section">
-    <h2>Reference: local Python version</h2>
-    <p>The Python script <code>main.py</code> in this folder generates the same Markdown report locally using only the standard library:</p>
-    <div class="output-block"><pre># Generate report from sales.csv:
-python main.py sample_data/sales.csv
-
-# Save report to a custom path:
-python main.py sample_data/sales.csv --output reports/sales_summary.md</pre></div>
-    <div class="ref-note"><strong>Note:</strong> The Python script requires local file access and Python 3.8+. The Cowork approach above works entirely in the browser with no install required.</div>
+    <h2>Bonus: local Python script</h2>
+    <p>The file <code>main.py</code> in this folder is a skeleton. Paste Claude's generated script into it and run:</p>
+    <p><code>python main.py sample_data/your_file.csv</code></p>
   </div>
 
 </div>
 
 <footer>Forgemind AI · Claude Course · HO13 · github.com/Forgemind-git/ho13-cli-tool</footer>
 
-<script>
-function copyPrompt(btn) {
-  const pre = btn.nextElementSibling;
-  navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-</script>
 </body>
 </html>

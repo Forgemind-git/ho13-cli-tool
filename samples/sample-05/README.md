@@ -1,91 +1,24 @@
-# Sample 05 — API Fetch & Save Script
+# HO13 Sample 5 — fetch and save
 
-Fetches JSON from a URL, saves it timestamped to a local file. With `--interval`, keeps polling and appending. Shows the last fetched value on each run.
+## Your task
 
-## Install
+You repeatedly grab the same data from a website or API and paste it somewhere. Build a Cowork fetch-and-save script.
 
-```bash
-pip install -r requirements.txt
-```
+## What you will build
 
-No external dependencies — stdlib only.
+A data-processing automation inside Claude Cowork
 
-## Usage
+## Files to upload
 
-```bash
-# Fetch the default public API once (JSONPlaceholder)
-python main.py
+- (Optional) API documentation screenshot or URL list
 
-# Fetch a custom URL
-python main.py --url https://jsonplaceholder.typicode.com/posts/1
+## How to run it
 
-# Save to a specific file
-python main.py --url https://jsonplaceholder.typicode.com/users/1 --output users.json
+1. Open claude.ai → Cowork
+2. Upload the files listed above
+3. Paste the prompt from cowork-prompt.md (fill it in first!)
+4. Claude will process your files and output the result
 
-# Poll every 30 seconds (Ctrl+C to stop)
-python main.py --url https://jsonplaceholder.typicode.com/todos/1 --interval 30
+## Required
 
-# Poll a real-world public API for Bitcoin price
-python main.py --url https://api.coindesk.com/v1/bpi/currentprice.json --interval 60 --output bitcoin.json
-```
-
-## Expected Output (single fetch)
-
-```
-Fetching: https://jsonplaceholder.typicode.com/todos/1
-
-[#1] Fetched at : 2024-01-15T10:30:45.123456+00:00
-  URL      : https://jsonplaceholder.typicode.com/todos/1
-  Status   : 200
-  userId   : 1
-  id       : 1
-  title    : delectus aut autem
-  completed: False
-
-[Saved] data.json  (1 record(s) total)
-```
-
-## Expected Output (polling mode)
-
-```
-Polling: https://jsonplaceholder.typicode.com/todos/1
-Interval: every 30s  |  Output: data.json
-Press Ctrl+C to stop.
-
-[10:30:45] Fetching (#1)...
-
-[#1] Fetched at : 2024-01-15T10:30:45+00:00
-  URL      : https://jsonplaceholder.typicode.com/todos/1
-  Status   : 200
-  ...
-  -> data.json  (1 record(s) total)
-
-Next fetch in 30s  (Ctrl+C to stop)
-```
-
-## Output File Format
-
-Records are saved as a JSON array, with each entry timestamped:
-
-```json
-[
-  {
-    "fetched_at": "2024-01-15T10:30:45.123456+00:00",
-    "url": "https://jsonplaceholder.typicode.com/todos/1",
-    "status": 200,
-    "data": {
-      "userId": 1,
-      "id": 1,
-      "title": "delectus aut autem",
-      "completed": false
-    }
-  }
-]
-```
-
-## Notes
-
-- If the output file already exists, new records are **appended** (not overwritten).
-- Works with any public JSON API — no API key required for the default URL.
-- The `--timeout` flag (default: 10s) controls the request timeout.
-- Errors during polling are logged and the script continues retrying.
+Claude.ai Pro or Team (Cowork access)
