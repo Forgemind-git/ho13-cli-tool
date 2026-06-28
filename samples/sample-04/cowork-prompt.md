@@ -2,14 +2,22 @@
 
 ## What to paste into Cowork
 
-[TODO: Write your Cowork prompt here.
+Upload the sample file first (`sample_data/sales.csv` — or your own weekly export),
+then paste this:
 
-Your prompt should tell Claude:
-1. What the uploaded files contain
-2. What processing to apply
-3. What the output should look like (format, columns, sections)
+```
+I've uploaded a sales CSV. Please write me a clean weekly summary report from it.
 
-Be specific — Claude works best with clear instructions.]
+Include these sections:
+1. Overview — how many rows, the date range covered, and the grand total of sales.
+2. Top performers — the top 5 by total sales (e.g. top regions or products), as a table.
+3. Key numbers — total, average, highest single sale, and lowest single sale.
+4. A short narrative — 3 or 4 plain-English sentences I could paste into an email,
+   highlighting what stood out this week.
+
+Give me the report as a downloadable Markdown file, and also show it in the chat.
+Only use the data in the file — don't invent any numbers.
+```
 
 ---
 

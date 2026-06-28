@@ -2,14 +2,23 @@
 
 ## What to paste into Cowork
 
-[TODO: Write your Cowork prompt here.
+Upload the sample file first (`sample_data/messy.csv` — or your own messy CSV/Excel
+export), then paste this:
 
-Your prompt should tell Claude:
-1. What the uploaded files contain
-2. What processing to apply
-3. What the output should look like (format, columns, sections)
+```
+I've uploaded a messy CSV file. Please clean it up and give me a tidy version I can download.
 
-Be specific — Claude works best with clear instructions.]
+Do all of the following:
+1. Standardise the column headers to lowercase snake_case (e.g. "First Name" -> first_name).
+2. Trim leading and trailing spaces from every cell.
+3. Remove exact duplicate rows, keeping the first one.
+4. Leave empty cells blank — don't guess or invent values.
+
+Then give me:
+- The cleaned file as a downloadable CSV (don't overwrite my original).
+- A short summary: how many rows were in the original, how many duplicates you removed,
+  how many rows remain, and which column names you changed.
+```
 
 ---
 

@@ -2,14 +2,25 @@
 
 ## What to paste into Cowork
 
-[TODO: Write your Cowork prompt here.
+Upload the sample files first (`sample_data/budget.xlsx`, `logo.png`, `notes.txt`,
+`script.py`, `video.mp4` — or your own messy files), then paste this:
 
-Your prompt should tell Claude:
-1. What the uploaded files contain
-2. What processing to apply
-3. What the output should look like (format, columns, sections)
+```
+I've uploaded a batch of random files. Please tidy them up for me.
 
-Be specific — Claude works best with clear instructions.]
+1. Sort every file into a folder based on its type, using these categories:
+   - Images (jpg, jpeg, png, gif, svg, webp)
+   - Documents (pdf, doc, docx, txt, xls, xlsx, ppt, pptx, md)
+   - Videos (mp4, mov, avi, mkv, webm)
+   - Audio (mp3, wav, flac, m4a)
+   - Code (py, js, html, css, json, yaml)
+   - Archives (zip, tar, gz, rar, 7z)
+   - Other (anything that doesn't fit above)
+
+2. Show me a summary table: each category, how many files it got, and the filenames in it.
+3. Put the sorted folders into a single zip I can download.
+4. Don't rename or change the contents of any file — just move them into the right folder.
+```
 
 ---
 
